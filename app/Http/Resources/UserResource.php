@@ -7,13 +7,21 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class UserResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
-    public function toArray(Request $request): array
+    public function toArray($request)
     {
-        return parent::toArray($request);
+        return[
+            'id' => $this->id_mhs,
+            'nim' => $this->mNim,
+            'Name' => $this->mNama,
+            'Email' => $this->mEmail,
+            'phoneNumber' => $this->mTelp,
+            'cohort' => $this->angkatan,
+            'birthDate' => $this->mTgllhr,
+            'birthPlace' => $this->mTmpt,
+            'address' => $this->mAlamat,
+            'pictureUrl' => 'https://tgainformatika.unimal.ac.id/filemhs/foto/'.$this->mFoto,
+            'createdAt' => $this->created_at,
+            'updatedAt' => $this->updated_at,
+        ];
     }
 }

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -46,11 +46,11 @@ class AuthController extends Controller
 
     public function me()
     {
-        $data = User::where('id_mhs', Auth::user()->id_mhs)->first();
+        $data = User::where('id_mhs', Auth::user()->id_mhs)->get();
         return response()->json([
             'success' => true,
-            'message' => 'User recent retrived successfully',
-            'data' => $data
+            'message' => 'User retrived successfully',
+            'data' => UserResource::collection($data)->first()
         ], Response::HTTP_OK);
     }
 }
