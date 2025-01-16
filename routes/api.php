@@ -15,9 +15,5 @@ Route::prefix('/auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 });  
-
-Route::get('/proposal', [ProposalController::class, 'index'])->middleware('auth:sanctum');
-Route::get('/research', [ResearchController::class, 'index'])->middleware('auth:sanctum');
-Route::get('/thesis', [ThesisController::class, 'index'])->middleware('auth:sanctum');
-
-
+Route::get('/thesis', [ThesisController::class, 'index']);
+Route::get('/thesis/{nim}', [ThesisController::class, 'show']);
