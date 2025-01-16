@@ -46,7 +46,7 @@ class AuthController extends Controller
 
     public function me()
     {
-        $data = User::where('id', Auth::user()->id)->first();
+        $data = User::where('id_mhs', Auth::user()->id_mhs)->first();
         return response()->json([
             'success' => true,
             'message' => 'User recent retrived successfully',
