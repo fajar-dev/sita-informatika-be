@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProposalResource extends JsonResource
+class ThesisResource extends JsonResource
 {
     public function toArray($request)
     {
@@ -15,10 +15,14 @@ class ProposalResource extends JsonResource
             'ksrFile' => $this->f_krs,
             'khsFile' => $this->f_khs,
             'transkripFile' => $this->f_transkip,
-            'consultation1File' => $this->f_acc1,
-            'consultation2File' => $this->f_acc2,
-            'proposalFile' => $this->f_proposal,
+            'consultationFile' => $this->f_acc1,
+            'plagiarismFile' => $this->f_plagialisme,
+            'paymentFile' => $this->f_spp,
+            'kknFile' => $this->f_kkn,
+            'journalFile' => $this->f_jurnal,
+            'thesisFile' => $this->f_tga,
             'comment' => $this->komentar,
+            'revisionStatus' => $this->status_rev,
             'createdAt' => $this->created_at,
             'updatedAt' => $this->updated_at,
         ];
